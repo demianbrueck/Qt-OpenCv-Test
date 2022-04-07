@@ -30,6 +30,7 @@ FORMS += \
     LIBS+=C:\Git\opencv\build\bin\libopencv_imgcodecs455.dll
     LIBS+=C:\Git\opencv\build\bin\libopencv_imgproc455.dll
     LIBS+=C:\Git\opencv\build\bin\libopencv_calib3d455.dll
+    LIBS+=C:\Git\opencv\build\bin\libopencv_videoio455.dll
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

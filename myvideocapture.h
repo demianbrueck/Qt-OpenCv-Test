@@ -8,7 +8,7 @@
 
 #include <QDebug>
 
-#define CAMERA_ID 0
+#define CAMERA_ID 1
 
 class MyVideoCapture : public QThread
 {
@@ -29,8 +29,8 @@ private:
     cv::Mat mFrame;
     cv::VideoCapture mVideoCap;
 
-    QImage  cvMatToQImage(const cv::Mat&inMat);
-    QPixmap cvMatToQPixmap(const cv::Mat&inMat);
+    QImage  cvMatToQImage(const cv::Mat &inMat);
+    QPixmap cvMatToQPixmap(const cv::Mat &inMat);
 };
 
 #endif // MYVIDEOCAPTURE_H

@@ -1,5 +1,6 @@
 #include "myvideocapture.h"
 #include <QDebug>
+#include <mainwindow.h>
 
 MyVideoCapture::MyVideoCapture(QObject *parent)
     : QThread{ parent }
@@ -16,13 +17,14 @@ void MyVideoCapture::run()
             if(!mFrame.empty()){
                 mPixmap = cvMatToQPixmap(mFrame);
                 emit newPixmapCaptured();
+                qDebug() << "f";
+
             }
         }
     }
 }
-    QImage MyVideoCapture::cvMatToQImage(const cv::Mat&inMat)
-
-       {
+QImage MyVideoCapture::cvMatToQImage(const cv::Mat& inMat)
+{
 
           switch ( inMat.type() )
 
@@ -48,7 +50,7 @@ void MyVideoCapture::run()
 
     // 8-bit, 3 channel
 
-    caseCV_8UC3:
+    case CV_8UC3:
 
     {
 
@@ -66,7 +68,7 @@ void MyVideoCapture::run()
 
     // 8-bit, 1 channel
 
-    caseCV_8UC1:
+    case CV_8UC1:
 
     {
 
@@ -130,7 +132,7 @@ void MyVideoCapture::run()
 
     }
 
-    QPixmap MyVideoCapture::cvMatToQPixmap(const cv::Mat&inMat )
+    QPixmap MyVideoCapture::cvMatToQPixmap(const cv::Mat &inMat )
 
        {
 

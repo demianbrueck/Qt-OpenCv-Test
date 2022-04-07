@@ -11,7 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(mOpenCV_videoCapture, &MyVideoCapture::newPixmapCaptured,this,[&](){
         video_pixmap = mOpenCV_videoCapture->pixmap();
+        update();
     });
+
 }
 
 MainWindow::~MainWindow()
@@ -24,13 +26,14 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<< "test";
     mOpenCV_videoCapture->start(QThread::HighestPriority);
+
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter painter;
     painter.begin(this);
-
-    painter.drawPixmap(50,50,50,50,video_pixmap);
+    qDebug()<<"painted";
+    painter.drawPixmap(0,0,500,500,video_pixmap);
 }
 
