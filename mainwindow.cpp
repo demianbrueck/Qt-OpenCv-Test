@@ -26,7 +26,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<< "test";
     mOpenCV_videoCapture->start(QThread::HighestPriority);
-
+    update();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
